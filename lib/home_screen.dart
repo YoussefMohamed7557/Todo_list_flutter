@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_list_flutter/settings.dart';
 import 'package:todo_list_flutter/task_list.dart';
-
 class HomePage extends StatefulWidget {
   static const rout_name = "HomePage";
 
@@ -16,14 +15,12 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-          preferredSize: Size.fromHeight(120.0),
-          child: AppBar(
-            title: Text(
-              titleList[selctedIndex],
-              style: Theme.of(context).textTheme.displayLarge,
-            ),
-          )),
+      appBar: AppBar(
+        title: Text(
+          titleList[selctedIndex],
+          style: Theme.of(context).textTheme.displayLarge,
+        ),
+      ),
       body: tabList[selctedIndex],
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton.large(
