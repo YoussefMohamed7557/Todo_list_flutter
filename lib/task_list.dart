@@ -1,38 +1,48 @@
-
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:todo_list_flutter/app_theme.dart';
+import 'package:flutter_timeline_calendar/timeline/model/calendar_options.dart';
+import 'package:flutter_timeline_calendar/timeline/model/day_options.dart';
+import 'package:flutter_timeline_calendar/timeline/model/headers_options.dart';
+import 'package:flutter_timeline_calendar/timeline/utils/calendar_types.dart';
+import 'package:flutter_timeline_calendar/timeline/utils/calendar_utils.dart';
+import 'package:flutter_timeline_calendar/timeline/widget/timeline_calendar.dart';
+import 'package:todo_list_flutter/task_item_widget.dart';
 
 class TaskList extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: ListView.builder(
-        itemCount: 22,
-          itemBuilder:(context, index) => Container(
-            margin: EdgeInsets.symmetric(horizontal: 12,vertical: 8),
-            padding: EdgeInsets.all(12),
-            decoration: BoxDecoration(borderRadius: BorderRadiusDirectional.circular(8.0),color: Theme.of(context).colorScheme.secondary,),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(color: Theme.of(context).primaryColor,width: 2,height: 80,),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 8),
-                      child: Text("Task Name Placeholder",style: Theme.of(context).textTheme.displayMedium,),
-                    ),
-                    Text("12.00",style: Theme.of(context).textTheme.displaySmall),
-                  ],
-                ),
-                Container(child: Icon(Icons.check,color: Theme.of(context).colorScheme.secondary,size: 32,),width:80,height: 40,decoration: BoxDecoration(color: Theme.of(context).primaryColor,borderRadius: BorderRadius.circular(4)),)
-              ],
-            ),
-
-          )
-      ),
+    return Column(
+      children: [
+        TimelineCalendar(
+          calendarType: CalendarType.GREGORIAN,
+          calendarLanguage: "en",
+          calendarOptions: CalendarOptions(
+            viewType: ViewType.DAILY,
+            toggleViewType: true,
+            headerMonthElevation: 10,
+            headerMonthShadowColor: Colors.black26,
+            headerMonthBackColor: Colors.transparent,
+          ),
+          dayOptions: DayOptions(
+              todayBackgroundColor: Theme.of(context).primaryColor,
+              compactMode: true,
+              weekDaySelectedColor: Theme.of(context).primaryColor,
+              selectedBackgroundColor: Theme.of(context).primaryColor,
+              disableDaysBeforeNow: true),
+              headerOptions: HeaderOptions(
+              weekDayStringType: WeekDayStringTypes.SHORT,
+              monthStringType: MonthStringTypes.FULL,
+              backgroundColor: Theme.of(context).primaryColor,
+              headerTextColor: Theme.of(context).colorScheme.secondary),
+              onChangeDateTime: (datetime) {
+                      print(datetime.getDate());
+                 },
+        ),
+        Expanded(
+          child: ListView.builder(
+              itemCount: 22, itemBuilder: (context, index) => TaskListItem()),
+        ),
+      ],
     );
   }
 }
