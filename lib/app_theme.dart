@@ -10,7 +10,7 @@ class AppThemeData {
         background: Colors.white,
         error: Colors.red,
         onError: Colors.red,
-        onSurface: Colors.black,
+        onSurface: Colors.grey,
         surface: Colors.white,
         onBackground: Colors.blueAccent,
         brightness: Brightness.light,
@@ -24,7 +24,7 @@ class AppThemeData {
           iconTheme: IconThemeData(color: Colors.white)),
       textTheme: TextTheme(
           displaySmall: TextStyle(
-              fontSize: 20, color: Colors.black54, fontWeight: FontWeight.w200),
+              fontSize: 20, color: Colors.black87, fontWeight: FontWeight.w400),
           displayMedium: TextStyle(
               fontSize: 22, color: Colors.black87, fontWeight: FontWeight.w400),
           displayLarge: TextStyle(
