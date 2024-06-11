@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:todo_list_flutter/add_task_bottom_action_sheet.dart';
 import 'package:todo_list_flutter/settings.dart';
 import 'package:todo_list_flutter/task_list.dart';
+
 class HomePage extends StatefulWidget {
   static const rout_name = "HomePage";
 
@@ -25,8 +27,12 @@ class _HomePageState extends State<HomePage> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton.large(
 
-        child: Icon(Icons.add,),
-        onPressed: () {},
+        child: Icon(
+          Icons.add,
+        ),
+        onPressed: () {
+          showAddTaskBottomActionSheet();
+        },
         shape: CircleBorder(),
       ),
       bottomNavigationBar: BottomAppBar(
@@ -55,5 +61,9 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     );
+  }
+
+  void showAddTaskBottomActionSheet() {
+    showModalBottomSheet(context: context, builder: (context) => AddTaskBottomActionSheet(),);
   }
 }

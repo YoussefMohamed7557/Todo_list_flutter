@@ -10,7 +10,7 @@ class AppThemeData {
         background: Colors.white,
         error: Colors.red,
         onError: Colors.red,
-        onSurface: Colors.black,
+        onSurface: Colors.grey,
         surface: Colors.white,
         onBackground: Colors.blueAccent,
         brightness: Brightness.light,
