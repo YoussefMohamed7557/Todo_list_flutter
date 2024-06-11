@@ -23,6 +23,7 @@ class TaskList extends StatelessWidget {
             headerMonthShadowColor: Colors.black26,
             headerMonthBackColor: Colors.transparent,
           ),
+
           dayOptions: DayOptions(
               todayBackgroundColor: Theme.of(context).primaryColor,
               compactMode: true,
