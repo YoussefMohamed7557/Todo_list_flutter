@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:todo_list_flutter/utils/firebase_utilities.dart';
+import 'package:todo_list_flutter/utils/ui_utilities.dart';
+
+import '../models/task_model.dart';
 
 class AddTaskBottomActionSheet extends StatefulWidget {
 
@@ -7,7 +11,7 @@ class AddTaskBottomActionSheet extends StatefulWidget {
 }
 
 class _AddTaskBottomActionSheetState extends State<AddTaskBottomActionSheet> {
-  GlobalKey<FormState> formController = GlobalKey();
+  GlobalKey<FormState> formController = GlobalKey<FormState>();
   String taskName = "";
   String taskDescription = "";
   DateTime selectedDate = DateTime.now();
@@ -28,8 +32,9 @@ class _AddTaskBottomActionSheetState extends State<AddTaskBottomActionSheet> {
                 textAlign: TextAlign.center,
               ),
               Form(
+                  key: formController,
                   child: Column(
-                children: [
+                  children: [
                   TextFormField(
                     decoration: InputDecoration(labelText: 'task name'),
                     onChanged: ( name){
@@ -107,9 +112,24 @@ class _AddTaskBottomActionSheetState extends State<AddTaskBottomActionSheet> {
   }
 
   void addTask() {
-    bool isValid = formController.currentState!.validate();
-    if(isValid){
-      // if valid case insert the new task
+      if(formController.currentState?.validate() == true){
+        Task task = Task(name: taskName,description: taskDescription,date_in_milliSecond: DateUtils.dateOnly(selectedDate).millisecondsSinceEpoch);
+        showLoadingDialog(context, false, 'loading ...');
+        addTaskToFireStore(task)
+            .then((value) {
+          //Task added successfully
+          removeDialog(context);
+          notifyUserWithFeedbackDialog(context, false, "task added successfully", "ok", () {
+            Navigator.pop(context);
+            Navigator.pop(context);
+          },);
+        },).catchError((onError){
+          //get error
+          removeDialog(context);
+          notifyUserWithFeedbackDialog(context, false, "some thing went wrong .. try again ", "positiveActionText", () {
+            Navigator.pop(context);
+          },);
+        });
     }
   }
 

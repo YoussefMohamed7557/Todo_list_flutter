@@ -6,7 +6,7 @@ import 'package:flutter_timeline_calendar/timeline/model/headers_options.dart';
 import 'package:flutter_timeline_calendar/timeline/utils/calendar_types.dart';
 import 'package:flutter_timeline_calendar/timeline/utils/calendar_utils.dart';
 import 'package:flutter_timeline_calendar/timeline/widget/timeline_calendar.dart';
-import 'package:todo_list_flutter/task_item_widget.dart';
+import 'package:todo_list_flutter/UI/task_item_widget.dart';
 
 class TaskList extends StatelessWidget {
   @override
