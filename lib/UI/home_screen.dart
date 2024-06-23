@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:todo_list_flutter/add_task_bottom_action_sheet.dart';
-import 'package:todo_list_flutter/settings.dart';
-import 'package:todo_list_flutter/task_list.dart';
+import 'package:todo_list_flutter/UI/add_task_bottom_action_sheet.dart';
+import 'package:todo_list_flutter/UI/settings.dart';
+import 'package:todo_list_flutter/UI/task_list.dart';
 
 class HomePage extends StatefulWidget {
   static const rout_name = "HomePage";
