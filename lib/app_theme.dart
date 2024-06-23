@@ -4,7 +4,7 @@ class AppThemeData {
       primaryColor: Colors.blueAccent,
       colorScheme: ColorScheme(
         primary: Colors.blueAccent,
-        onPrimary: Colors.lightGreenAccent,
+        onPrimary: Colors.green,
         secondary: Colors.white,
         onSecondary: Colors.white,
         background: Colors.white,

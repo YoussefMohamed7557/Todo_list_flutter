@@ -28,3 +28,8 @@ Stream<QuerySnapshot<Task>> getTasksAsStream(int date){
 void deleteTask(Task task){
   getTaskCollectionReference().doc(task.id).delete();
 }
+Future<void> updateStoredTask(Task task){
+  var collection = getTaskCollectionReference();
+  var docRef = collection.doc(task.id);
+  return docRef.set(task,SetOptions(merge: true));
+}

@@ -36,7 +36,7 @@ class _AddTaskBottomActionSheetState extends State<AddTaskBottomActionSheet> {
                   child: Column(
                   children: [
                   TextFormField(
-                    decoration: InputDecoration(labelText: 'task name'),
+                    decoration: InputDecoration(labelText: 'task name',),
                     onChanged: ( name){
                       taskName = name;
                     },
