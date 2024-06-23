@@ -64,8 +64,8 @@ class _TaskListState extends State<TaskList> {
             }
         ),
         Expanded(
-          child:FutureBuilder<QuerySnapshot<Task>>(
-          future: getTasks(selectedDate.millisecondsSinceEpoch),
+          child:StreamBuilder<QuerySnapshot<Task>>(
+          stream: getTasksAsStream(selectedDate.millisecondsSinceEpoch),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting){
               return Center(child: CircularProgressIndicator());

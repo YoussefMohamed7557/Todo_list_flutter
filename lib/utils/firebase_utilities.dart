@@ -15,8 +15,13 @@ Future<void> addTaskToFireStore(Task task){
 }
 Future<QuerySnapshot<Task>> getTasks(int date){
   var collection = getTaskCollectionReference();
-  
   return collection
   .where('date_in_milliSecond', isEqualTo: date)
   .get();
+}
+Stream<QuerySnapshot<Task>> getTasksAsStream(int date){
+  var collection = getTaskCollectionReference();
+  return collection
+      .where('date_in_milliSecond', isEqualTo: date)
+      .snapshots();
 }
