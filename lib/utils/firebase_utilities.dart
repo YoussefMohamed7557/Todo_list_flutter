@@ -13,3 +13,10 @@ Future<void> addTaskToFireStore(Task task){
  task.id = docRef.id;
  return docRef.set(task);
 }
+Future<QuerySnapshot<Task>> getTasks(int date){
+  var collection = getTaskCollectionReference();
+  
+  return collection
+  .where('date_in_milliSecond', isEqualTo: date)
+  .get();
+}
