@@ -25,3 +25,6 @@ Stream<QuerySnapshot<Task>> getTasksAsStream(int date){
       .where('date_in_milliSecond', isEqualTo: date)
       .snapshots();
 }
+void deleteTask(Task task){
+  getTaskCollectionReference().doc(task.id).delete();
+}
