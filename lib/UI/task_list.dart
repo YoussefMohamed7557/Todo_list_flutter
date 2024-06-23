@@ -81,7 +81,7 @@ class _TaskListState extends State<TaskList> {
               );
             }else{
               tasksList = snapshot.data?.docs.map((element){return element.data();}).toList()?? [];
-              return ListView.builder(itemBuilder: (context, index) => TaskListItem(tasksList[index]),
+              return ListView.builder(itemBuilder: (context, index) => TaskListItem(tasksList[index],selectedDate),
                 itemCount: tasksList.length,
               );
             }
