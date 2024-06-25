@@ -3,6 +3,7 @@ import 'package:todo_list_flutter/UI/edite_task_bottom_action_sheet.dart';
 import 'package:todo_list_flutter/models/task_model.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:todo_list_flutter/utils/firebase_utilities.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TaskListItem extends StatefulWidget {
   Task task;
@@ -34,7 +35,7 @@ class _TaskListItemState extends State<TaskListItem> {
               backgroundColor: Color(0xFFFE4A49),
               foregroundColor: Colors.white,
               icon: Icons.delete,
-              label: 'Delete',
+              label: AppLocalizations.of(context)!.delete,
             )
           ],
         ),
@@ -80,7 +81,7 @@ class _TaskListItemState extends State<TaskListItem> {
                 width: 12,
               ),
               widget.task.isDone ?
-              Text("Done !",style: Theme.of(context).textTheme.displayLarge?.copyWith(color: Colors.green,fontWeight: FontWeight.w700),)
+              Text(AppLocalizations.of(context)!.done,style: Theme.of(context).textTheme.displayLarge?.copyWith(color: Colors.green,fontWeight: FontWeight.w700),)
               :Expanded(
                   flex: 5,
                   child: InkWell(
