@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:todo_list_flutter/UI/add_task_bottom_action_sheet.dart';
 import 'package:todo_list_flutter/UI/settings.dart';
 import 'package:todo_list_flutter/UI/task_list.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomePage extends StatefulWidget {
   static const rout_name = "HomePage";
@@ -13,9 +14,11 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int selctedIndex = 0;
   List<Widget> tabList = [TaskList(), Settings()];
-  List<String> titleList = ["To Do List", "Settings"];
+  List<String> titleList = [];
+  @override
   @override
   Widget build(BuildContext context) {
+    titleList = [AppLocalizations.of(context)!.to_do_list, AppLocalizations.of(context)!.settings];
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -34,6 +37,7 @@ class _HomePageState extends State<HomePage> {
           showAddTaskBottomActionSheet();
         },
         shape: CircleBorder(),
+
       ),
       bottomNavigationBar: BottomAppBar(
         padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -53,10 +57,12 @@ class _HomePageState extends State<HomePage> {
                 icon: Icon(
                   Icons.list_outlined,
                   size: 44,
+                  color:  Theme.of(context).primaryColor,
                 ),
-                label: ''),
+                label: '',
+            ),
             BottomNavigationBarItem(
-                icon: Icon(Icons.settings, size: 44), label: '')
+                icon: Icon(Icons.settings, size: 44,color: Theme.of(context).primaryColor,), label: '')
           ],
         ),
       ),
