@@ -54,7 +54,7 @@ Welcome to the To-Do List Mobile App! This app helps you organize your tasks eff
      - Open the settings tab from bottom navigation bar.
      - Select your preferred language (Arabic or English).
      - Choose your preferred theme mode (Dark or Light).
-       <img src="assets/images/task_deleting.png" alt="Task Deleting Image" width="600">
+       <img src="assets/images/settings.png" alt="Settings Image" width="600">
    
 ## Installation
 1. Clone the repository:
