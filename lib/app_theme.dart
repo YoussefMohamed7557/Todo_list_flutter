@@ -46,7 +46,7 @@ class AppThemeData {
       primaryColor: Colors.lightBlueAccent,
       colorScheme: ColorScheme(
         primary: Colors.blueAccent,
-        onPrimary: Colors.black,
+        onPrimary:Colors.lightBlueAccent,
         secondary: Colors.white,
         onSecondary: Colors.white,
         background: Colors.white,
@@ -78,5 +78,6 @@ class AppThemeData {
       bottomSheetTheme: BottomSheetThemeData(backgroundColor: Colors.white)
     ,floatingActionButtonTheme: FloatingActionButtonThemeData(
     backgroundColor: Colors.lightBlueAccent,
+    foregroundColor: Colors.black
   ),);
 }

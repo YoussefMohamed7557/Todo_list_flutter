@@ -1,5 +1,8 @@
+
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:todo_list_flutter/UI/edite_task_bottom_action_sheet.dart';
+import 'package:todo_list_flutter/models/settings_provider.dart';
 import 'package:todo_list_flutter/models/task_model.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:todo_list_flutter/utils/firebase_utilities.dart';
@@ -17,6 +20,7 @@ class TaskListItem extends StatefulWidget {
 class _TaskListItemState extends State<TaskListItem> {
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppProvider>(context);
     Color primary = Theme.of(context).colorScheme.primary;
     Color onPrimary = Theme.of(context).colorScheme.onPrimary;
     return InkWell(
@@ -81,7 +85,7 @@ class _TaskListItemState extends State<TaskListItem> {
                 width: 12,
               ),
               widget.task.isDone ?
-              Text(AppLocalizations.of(context)!.done,style: Theme.of(context).textTheme.displayLarge?.copyWith(color: Colors.green,fontWeight: FontWeight.w700),)
+              Text(AppLocalizations.of(context)!.done,style: Theme.of(context).textTheme.displayLarge?.copyWith(color: provider.themeMode==ThemeMode.light?Colors.green:Theme.of(context).primaryColor,fontWeight: FontWeight.w700),)
               :Expanded(
                   flex: 5,
                   child: InkWell(
