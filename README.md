@@ -29,21 +29,33 @@ Welcome to the To-Do List Mobile App! This app helps you organize your tasks eff
      - Select the date for the new task.
      - Press the "Add Task" button.
      - The new task will appear under the selected date.
-   
+     <img src="assets/images/task_adding.png" alt="Task Adding Image" width="600">
+     <img src="assets/images/task_added.png" alt="Task Added Image" width="600">
+     <img src="assets/images/task_presenting.png" alt="Task Presenting Image" width="600">
+
 2.      **Editing a Task**
      - Navigate to the task you want to edit.
      - Tap on the task to open the edit interface.
      - Make the necessary changes and save the changes using Save Changes button.
+       <img src="assets/images/task_editting.png" alt="Task Editing Image" width="600">
+       <img src="assets/images/task_editted.png" alt="Task Edited Image" width="600">
+   
 3.      **Marking a Task as Done**
      - Locate the task you want to mark as done.
      - Tap the checkbox or "Mark as Done" button next to the task.
+       <img src="assets/images/task_done.png" alt="Task Done Image" width="600">
+   
 4.      **Deleting a Task**
      - Find the task you wish to delete.
      - Swipe left on the task (or press the delete button) to remove it.
+       <img src="assets/images/task_deleting.png" alt="Task Deleting Image" width="600">
+   
 5.      **Settings Tab**
      - Open the settings tab from bottom navigation bar.
      - Select your preferred language (Arabic or English).
      - Choose your preferred theme mode (Dark or Light).
+       <img src="assets/images/task_deleting.png" alt="Task Deleting Image" width="600">
+   
 ## Installation
 1. Clone the repository:
    ```bash
